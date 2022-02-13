@@ -8,6 +8,8 @@ import { coins } from "../api";
 import { BLACK_COLOR } from "../colors";
 import Coin from "../components/Coin";
 
+interface IProps {}
+
 const Container = styled.View`
   background-color: ${BLACK_COLOR};
   flex: 1;
@@ -25,7 +27,7 @@ const List = styled.FlatList`
   width: 100%;
 `;
 
-const Home = () => {
+const Home: React.FC<IProps> = () => {
   const { isLoading, data } = useQuery("coins", coins);
   const [cleanData, setCleanData] = useState([]);
 
@@ -47,7 +49,7 @@ const Home = () => {
 
   return (
     <Container>
-      <List
+      <List<any>
         data={cleanData}
         ItemSeparatorComponent={() => <View style={{ height: 10 }} />}
         numColumns={3}
@@ -56,7 +58,7 @@ const Home = () => {
         }}
         keyExtractor={(_, index) => index.toString()}
         renderItem={({ item, index }) => (
-          <Coin index={index} symbol={item.symbol as any} />
+          <Coin index={index} id={item?.id} symbol={item?.symbol} />
         )}
       />
     </Container>
