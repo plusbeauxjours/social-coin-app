@@ -16,6 +16,7 @@
     "react-native": "0.67.2",
     "react-native-gesture-handler": "2.2.0",
     "react-native-safe-area-context": "3.3.2",
+    "react-native-screens": "3.11.1",
     "react-native-svg": "12.1.1",
     "react-query": "3.34.14",
     "styled-components": "5.3.3",
